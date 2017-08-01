@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'git --version'
                 sh 'npm --version'
-                sh 'node helloServer.js'
+                sh 'node helloServer.js'                
             }
         }
     }
