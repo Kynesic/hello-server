@@ -1,5 +1,5 @@
 pipeline {
-    agent { 'node:6.3' }
+    agent { dockerfile }
     stages {
         stage('build') {
             steps {
