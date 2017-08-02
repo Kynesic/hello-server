@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'gcloud auth list'
                 sh 'gcloud docker -- --version'
                 sh 'docker build -t hello-server .'
                 sh 'docker tag hello-server gcr.io/production-175011/jenkins-hello-server'
