@@ -4,10 +4,10 @@ pipeline {
         stage('build') {
             steps {
                 sh 'gcloud docker -- --version'
-                sh 'docker build -t hello-server:0.0.0.3 .'
-                sh 'docker tag hello-server:0.0.0.3 eu.gcr.io/production-175011/jenkins-hello-server:0.0.0.3'
+                sh 'docker build -t hello-server .'
+                sh 'docker tag hello-server gcr.io/production-175011/jenkins-hello-server'
                 sh 'gcloud docker --authorize-only'
-                sh 'gcloud docker -- push eu.gcr.io/production-175011/jenkins-hello-server:0.0.0.3'
+                sh 'gcloud docker -- push gcr.io/production-175011/jenkins-hello-server'
             }
         }
     }
