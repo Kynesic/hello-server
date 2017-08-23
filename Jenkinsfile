@@ -3,6 +3,9 @@ pipeline {
     stages {
       stage('build') {
         steps {
+          sh 'docker'
+          sh 'docker --version'
+          sh 'docker build -t eu.gcr.io/production-175011/jenkins-hello-server .'
           sh 'docker build -t eu.gcr.io/production-175011/jenkins-hello-server . --network=host'
           sh 'gcloud docker -- push eu.gcr.io/production-175011/jenkins-hello-server'
         }
